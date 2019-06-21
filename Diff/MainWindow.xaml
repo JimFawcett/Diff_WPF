@@ -1,0 +1,62 @@
+﻿<Window x:Class="Diff_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CodeWebifier"
+        mc:Ignorable="d"
+        Closing="Window_Closing"
+        Title="File Diff" Height="600" Width="525" SizeChanged="Window_SizeChanged">
+  <!-- 
+  /////////////////////////////////////////////////////////////////////
+  // MainWindow.xaml - Layout for Diff_WPF                           //
+  //                                                                 //
+  // Jim Fawcett, Summer 2018                                        //
+  /////////////////////////////////////////////////////////////////////
+  -->
+    <Grid Background="#ddc">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="10"></RowDefinition>  <!--spacer-->
+      <RowDefinition Height="30"></RowDefinition>  <!--Label-->
+      <RowDefinition Height="10"></RowDefinition>  <!--spacer-->
+      <RowDefinition Height="25"></RowDefinition>  <!--TextBox-->
+      <RowDefinition Height="5"></RowDefinition>  <!--spacer-->
+      <RowDefinition Height="25"></RowDefinition>  <!--TextBox-->
+      <RowDefinition Height="10"></RowDefinition>  <!--spacer-->
+      <RowDefinition Height="30"></RowDefinition>  <!--Buttons-->
+      <RowDefinition Height="10"></RowDefinition>  <!--spacer-->
+      <RowDefinition Height="*"></RowDefinition>   <!--TextBlock-->
+      <RowDefinition Height="30"></RowDefinition>  <!--StatusBar-->
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="30"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+      <ColumnDefinition Width="30"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+    <Label Grid.Row="1" Grid.Column="1" FontFamily="Tahoma" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" Background="#eed" Width="200">
+      File Diff Reporter
+    </Label>
+    <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+      <TextBox Name="FirstFileDate" Width="125" Height="20">File Date</TextBox>
+      <Label Width="10"></Label>
+      <TextBox Name="FirstFileNameTextBox" MinWidth="250" Height="20">File Specification</TextBox>
+    </StackPanel>
+    <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
+      <TextBox Name="SecondFileDate" Width="125" Height="20">File Date</TextBox>
+      <Label Width="10"></Label>
+      <TextBox Name="SecondFileNameTextBox" MinWidth="250" Height="20">File Specification</TextBox>
+    </StackPanel>
+    <StackPanel Grid.Row="7" Grid.Column="1" Height="20" Orientation="Horizontal" HorizontalAlignment="Right">
+      <Button Name="Browse1Button" Height="20" Width="80" Click="Browse1Button_Click">Browse File1</Button>
+      <Label Width="20"></Label>
+      <Button Name="Browse2Button" Height="20" Width="80" Click="Browse2Button_Click">Browse File2</Button>
+      <Label Width="20"></Label>
+      <Button Name="CompareButton" Height="20" Width="70" Click="CompareButton_Click">Compare</Button>
+    </StackPanel>
+    <Border Grid.Row="9" Grid.Column="1" BorderThickness="1" BorderBrush="DarkSlateGray">
+      <ScrollViewer>
+        <TextBlock Name="FileTextBlock" Grid.Row="5" Grid.Column="1" Padding="10" Background="White" FontFamily="consolas">File contents here</TextBlock>
+      </ScrollViewer>
+    </Border>
+    </Grid>
+</Window>
